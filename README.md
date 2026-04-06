@@ -113,3 +113,7 @@ Event-based PSHA
 Ground motions are applied uniformly at the base
 Limitations:
 No explicit modeling of torsional irregularities, soil effects, non-structural components, ground motion scaling, and drift-based damage model.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Chatgpt chat link: 
+https://chatgpt.com/share/69d33456-afc8-8324-9b25-8794a24a6645 
+https://chatgpt.com/share/69d334d1-f754-83a8-8897-92d24b424c0e
