@@ -72,3 +72,44 @@ The hazard is estimated by developing the uniform hazard response spectra (UHRS)
 3.3 Ground Motion Set
 A suite of 22 near-field (NF) without pulse and 11 far-field (FF) with pulse ground motion pairs is used to represent moderate-to-strong shaking levels with variability in frequency content and duration. The ground motions are selected based on the requirement that the mean of selected ground motions should match the uniform hazard response spectra generated from PSHA for a 475-year return period without scaling.
 
+4. Nonlinear Dynamic Analysis
+4.1 Analysis Type
+Nonlinear Time History Analysis (NLTHA) is conducted using bi-directional seismic input with time-step integration using stable implicit schemes. Rayleigh damping is considered based on the mass and stiffness of the building.
+
+4.2 Output Response Quantities
+
+For each ground motion pair, the Engineering Demand Parameters (EDPs) are extracted as roof displacement, storey displacement, along with the maximum inter-storey drift ratio (MIDR). Results are stored in a structured CSV format.
+
+5. Damage Assessment
+5.1 Damage Measure
+
+Damage is quantified using MIDR. Damage states are defined using threshold values:
+DS1: Slight damage (MIDR = 0.002)
+DS2: Moderate damage (MIDR = 0.005)
+DS3: Extensive damage (MIDR = 0.008)
+DS4: Collapse (MIDR = 0.01)
+These thresholds are consistent with FEMA framework-based RC fragilities.
+
+5.2 Fragility Concept
+
+The fragility curves are generated for each DS, 𝑃(𝐷𝑆∣𝐼𝑀). Where IM = Intensity Measure (Sa).
+
+5.3 Risk Integration
+
+The pipeline integrates seismic hazard (mean annual rate of exceedance) with fragility curves and develops the risk of building with a 50-year PoE for each DSs.
+
+5.4 Loss Assessment
+
+The loss assessment converts structural damage into quantitative economic risk metrics within the framework: Hazard → Response (EDP) → Damage (DS) → Loss
+Each DS is assigned a loss ratio (repair cost/replacement cost): LR = 0.02, 0.10, 0.50, 1.00.
+Expected Loss Ratio (ELR)=∑P(DSi)⋅LRi, which represents the expected fraction of building value lost. Loss curves in both directions are generated
+
+6. Key Assumptions and Limitations
+Assumptions: 
+Regular building geometry
+Fixed-base condition (no soil-structure interaction)
+Bare frame (no infill wall contribution)
+Event-based PSHA
+Ground motions are applied uniformly at the base
+Limitations:
+No explicit modeling of torsional irregularities, soil effects, non-structural components, ground motion scaling, and drift-based damage model.
