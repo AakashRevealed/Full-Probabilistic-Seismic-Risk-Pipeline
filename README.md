@@ -49,7 +49,7 @@ The objective is to eliminate fragmentation between traditionally disconnected t
 2. Building Model Description
 2.1 Structural Typology
 
-The structure modeled in this pipeline is a 3D RC Moment-Resisting Frame (MRF) with 3-storey 2 bay in x-direction and 1 bay in y-direction, with a bay length of 5 m in x-direction along with 6 m in y-direction, with a regular rectangular grid layout. While modelling the column, the size of the column is kept as 0.5m*0.5m, and the beam size is 0.3m*0.4m. Cover of the member is considered as 0.05m. Mass per node is considered as 10000 kg with mesh size of 1 m. The 4 bars are considered at the top, bottom, and intermediate locations of the column. A rigid diaphragm is assumed at each floor level. The 4 numbers of bars are considered at the top and bottom of the beam. This typology is representative of mid-rise urban residential/commercial buildings in seismic regions of India.
+The structure modeled in this pipeline is a 3D RC Moment-Resisting Frame (MRF) with 3-storey 2 bay in x-direction and 1 bay in y-direction, with a bay length of 5 m in x-direction along with 6 m in y-direction, with a regular rectangular grid layout. While modelling the column, the column size is kept at 0.5m*0.5m, and the beam size at 0.3m*0.4m. Cover of the member is considered as 0.05m. Mass per node is considered as 10000 kg with mesh size of 1 m. The 4 bars are considered at the top, bottom, and intermediate locations of the column. A rigid diaphragm is assumed at each floor level. The 4 numbers of bars are considered at the top and bottom of the beam. This typology represents mid-rise urban residential/commercial buildings in the seismic regions of India.
 
 2.2 Material Modeling
 
@@ -65,5 +65,10 @@ The pipeline uses an event-based Probabilistic Seismic Hazard Analysis (PSHA) ap
 Input ground motions are taken from recorded accelerograms (PEER NGA database) with AT2 format in two orthogonal components:
 GM_X → X-direction excitation and GM_Y → Y-direction excitation. 
 
-3.2 Ground Motion Set
+3.2 Hazard Assumptions
+
+The hazard is estimated by developing the uniform hazard response spectra (UHRS)  for a 475-year return period (10% probability of exceedance (PoE) and seismic hazard curve, which represents the mean annual rate of exceedance. The UHRS is further utilized for the ground motions selection that effectively represents the site-specific seismic hazards, and the hazard curve is utilized for further risk assessment of the building.
+	​
+3.3 Ground Motion Set
 A suite of 22 near-field (NF) without pulse and 11 far-field (FF) with pulse ground motion pairs is used to represent moderate-to-strong shaking levels with variability in frequency content and duration. The ground motions are selected based on the requirement that the mean of selected ground motions should match the uniform hazard response spectra generated from PSHA for a 475-year return period without scaling.
+
